@@ -5,7 +5,10 @@ def load_st_dataset(dataset):
     #output B, N, D
     if dataset == 'METR-LA':
         data_path = os.path.join('../data/METR-LA/metr-la.npz')
-        data = np.load(data_path)['data'][:, :, 0]  #only the first dimension, traffic flow data
+        data = np.load(data_path)['data'][:, :]  #METR-LA only has one dimension
+    elif dataset == 'METR-LA_small':
+        data_path = os.path.join('../data/METR-LA/metr-la_small.npz')
+        data = np.load(data_path)['data'][:, :]  #METR-LA only has one dimension
     elif dataset == 'PEMSD4':
         data_path = os.path.join('../data/PeMSD4/pems04.npz')
         data = np.load(data_path)['data'][:, :, 0]  #only the first dimension, traffic flow data
